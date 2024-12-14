@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The web site of filianwiki</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+ 
+
+  <style>
+  
+
+  </style>
+  
+<div class='card' data-city='buda'>
+    <h2>Visit Barcelona</h2>
+    <p>
+        <span class='dots'></span>
+        <span class='more' style='display:none;'> This is where i would put a story if i had one.</span>
+    </p>
+    <button onclick="readMore('buda')" class='myBtn'>Read more</button>
+</div>
+
+<br/>
+<div class="card" data-city="barca">
+    <h2>Visit Barcelona</h2>
+    <p>
+        <span class="dots"></span>
+        <span class="more" style="display: none;"> This is where i would put a story if i had one.</span>
+    </p>
+    <button onclick="readMore('barca')" class="myBtn">Read more</button>
+</div>
+
+<script>
+
+function readMore(city) {
+    let dots = document.querySelector(`.card[data-city="${city}"] .dots`);
+    let moreText = document.querySelector(`.card[data-city="${city}"] .more`); 
+    let btnText = document.querySelector(`.card[data-city="${city}"] .myBtn`);
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.textContent = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.textContent = "Read less"; 
+        moreText.style.display = "inline";
+    }
+}
+
+
+
+</script>
+
+  </body>
+</html>

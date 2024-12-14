@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Saw Game</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f00;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      position: relative; /* Make the body a positioned element */
+      overflow: hidden; /* Prevent scrolling */
+    }
+    #jigsawImage {
+      position: absolute; /* Position the image absolutely */
+      width: 500px; /* Start with a width of 500px */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for the image's size */
+      transition: width 0.3s ease;
+      z-index: 1; /* Set a lower z-index */
+    }
+    #prompt, #game, #options, #message {
+      text-align: center;
+      margin: 20px 0;
+      z-index: 2; /* Set a higher z-index for these elements */
+      position: relative; /* Ensure these elements are positioned above the image */
+      /* Outline effect */
+      color: #f00;
+      text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* Creates an outline effect */
+    }
+    #options button {
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #f00;
+      background-color: #222;
+      border: 1px solid #555;
+      margin: 5px;
+    }
+    #game {
+      display: none;
+      grid-template-columns: repeat(5, 50px);
+      grid-gap: 10px;
+    }
+    .tile {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      color: #f00;
+      border-radius: 5px;
+      border: 1px solid #555;
+    }
+
+    /* Jumpscare video overlay */
+    #jumpscareOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #jumpscareVideo {
+      width: 100%;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="jigsawImageContainer">
+  <img id="jigsawImage" src="https://filian.org/game%20with%20hat2.png" alt="Jigsaw">
+</div>
+<div id="prompt">Do you want to play a game?</div>
+<div id="options">
+  <button onclick="startGame()">Yes</button>
+  <button onclick="declineGame()">No</button>
+</div>
+<div id="message"></div>
+
+<!-- Jumpscare video overlay -->
+<div id="jumpscareOverlay" onclick="hideJumpscare()">
+  <video id="jumpscareVideo" src="https://filian.org/penguinz0%20jumpscare%20[cw8tuNZjIf4].webm" autoplay></video>
+</div>
+
+<script>
+  const threateningMessages = [
+    "Yes, you will play this game.",
+    "You don't have a choice.",
+    "Don't resist. You must play.",
+    "This is your only chance.",
+    "Why are you scared? Just play.",
+    "You think you can say no?",
+    "Play the game, or suffer the consequences.",
+    "You are running out of time.",
+    "The clock is ticking.",
+    "You can't escape this fate.",
+    "It's better to play than to ignore.",
+    "You think this is just a joke?",
+    "You will regret not playing.",
+    "You will play whether you like it or not.",
+    "Face your fears and play the game.",
+    "Why are you hesitating?",
+    "This is your last warning.",
+    "You can't hide forever.",
+    "You will see what I mean soon.",
+    "You’re playing with fire.",
+    "You’re about to make a big mistake.",
+    "You're making me angry.",
+    "Do you think I'm playing?",
+    "Are you really willing to say no?",
+    "Your fate is sealed.",
+    "Don't make me ask again.",
+    "Do you really think you can refuse?",
+    "You will play now.",
+    "The game is waiting.",
+    "Do you want to end up like the others?",
+    "It's time to make your choice.",
+    "You can only delay the inevitable.",
+    "Don't you want to test your luck?",
+    "You have no idea what’s coming.",
+    "Why are you afraid?",
+    "Your defiance is noted.",
+    "Don't provoke me.",
+    "You think you can escape?",
+    "You will find out what happens when you say no.",
+    "You will see what happens to those who refuse.",
+    "You are merely delaying the inevitable.",
+    "Don’t make me angry.",
+    "You can’t just say no and walk away.",
+    "This isn’t a request, it’s a demand.",
+    "You’ll wish you had said yes.",
+    "You are making a grave mistake.",
+    "Every denial leads to more pain.",
+    "You don’t know what you’re doing.",
+    "You will wish you had listened.",
+    "You are out of time.",
+    "You will play, and you will obey.",
+    "You are making a grave mistake.",
+    "Every time you say no, it gets worse.",
+    "Do you want to know what happens next?",
+    "You will learn the hard way.",
+    "The game does not end until you say yes.",
+    "You think you can defy me?",
+    "You will find out soon enough.",
+    "You will understand what it means to say no.",
+    "You will play this game until the end."
+  ];
+
+  let noCount = 0;
+
+  function startGame() {
+    // Redirect to the specified URL
+    window.location.href = "https://filian.org/thegamechristmas";
+  }
+
+  function declineGame() {
+    noCount++;
+    const jigsawImage = document.getElementById('jigsawImage');
+    jigsawImage.style.width = (500 + noCount * 10) + 'px'; // Increase image size starting from 500px
+
+    if (noCount < threateningMessages.length) {
+      document.getElementById('message').textContent = threateningMessages[noCount - 1];
+    } else {
+      document.getElementById('message').textContent = "You've made a grave mistake. Now, you will play!";
+      triggerJumpscare();
+    }
+  }
+
+  function createGameBoard() {
+    const game = document.getElementById('game');
+    game.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++) {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.textContent = '';
+        game.appendChild(tile);
+      }
+    }
+  }
+
+  function triggerJumpscare() {
+    document.getElementById('jumpscareOverlay').style.display = 'flex';
+    document.getElementById('jumpscareVideo').play();
+  }
+
+  function hideJumpscare() {
+    document.getElementById('jumpscareOverlay').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

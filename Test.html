@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysteli Editable Page</title>
+</head>
+<body>
+    <div id="content" contenteditable="false">This is editable content. Click "Edit" to change it.</div>
+    <button onclick="checkPassword()">Edit</button>
+    <button onclick="saveContent()">Save</button>
+
+    <script>
+        function checkPassword() {
+            const password = prompt("Enter password:");
+            if (password === "filian") {
+                document.getElementById("content").contentEditable = true;
+                alert("You can now edit the content.");
+            } else {
+                alert("Incorrect password.");
+            }
+        }
+
+        function saveContent() {
+            const content = document.getElementById("content").innerHTML;
+            localStorage.setItem('editableContent', content);
+            alert("Content saved locally!");
+        }
+
+        // Load saved content on page load
+        window.onload = function() {
+            const savedContent = localStorage.getItem('editableContent');
+            if (savedContent) {
+                document.getElementById("content").innerHTML = savedContent;
+            }
+        }
+    </script>
+</body>
+</html>

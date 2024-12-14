@@ -1,0 +1,734 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Verdana;
+  padding: 100px 0;
+}
+ 
+ .squish{
+  border: 0 solid black;
+  margin:auto;
+  max-width:70%;
+  counter-reset:footnote;
+ }
+ 
+.info{
+  float: right;
+  border: 1px solid #E86924;
+  Width: 250px;
+  max-width: 250px;
+  margin: 0;
+  clear:right;
+}
+
+
+.infosmall{
+  float: right;
+  border: 1px solid #E86924;
+  Width: 200px;
+  max-width: 200px;
+  margin: 0;
+  clear:right;
+  text-align: center;
+  
+}
+
+.signiture{
+ /*width: 190px;
+ height: 100px;*/
+ margin-left: 0;
+ margin-right: 20px;
+ justify-content: center;
+}
+
+.avatar{
+ /*width: 250px;
+ height: 250px;*/
+ margin-left: 20px;
+ margin-right: 20px;
+ justify-content: center;
+}
+
+.section{
+text-align:left;
+}
+
+.plsdont{
+ font-size: 60%; 
+}
+
+.head{
+ font-size: 125%; 
+}
+
+h1, h2, h3{
+text-align: center;
+}
+
+.line{
+ border-bottom: solid 1px black; 
+ padding: 0;
+ Width: 250px;
+}
+
+.names{
+  display: flex;
+  text-align: start;
+  justify-content: space-between;
+  
+}
+
+.row{
+ box-sizing: border-box; 
+}
+
+.column{
+ float: left;
+ text-align: left;
+}
+
+.lc{
+  width: 70px;
+  margin: 10px 5px;
+  
+}
+
+.rc{
+  max-width:120px;
+  margin: 11px 5px;
+}
+
+
+
+.gline{
+ border-bottom: solid 1px black; 
+ padding: 0;
+ Width: 785px;
+}
+
+li, p, b, span, a{
+ font-size: 15px; 
+}
+
+.ref{
+  
+  display: flex; 
+  flex-wrap: wrap;
+  margin-top: 0.3em; 
+}
+
+.ref2{
+ column-width: 360px;  
+}
+
+@media(max-height: 390px){
+  .ref2{
+   column-width: 350px; 
+  }
+}
+
+
+.tl{
+   border: none;
+   height: 1px;
+   background-color: #E86924
+}
+
+hr{
+   border: none;
+   height: 1px;
+   background-color: #E86924
+}
+
+.color{
+ background-color: #E86924;
+}
+
+.pic{
+ font-size:90%;
+ text-decoration:none;
+ font-weight:bold;
+ display:inline-block;
+ position: relative;
+ color:#0066CC; 
+ background: transparent;
+}
+/*
+.reference {
+ font-size:90%;
+ text-decoration:none;
+ font-weight:bold;
+ display:inline-block;
+ vertical-align:super;
+ position: relative;
+ top: -0.4em;
+ background:transparent;
+}
+
+
+
+
+div{
+ line-height:150%; 
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+sub { 
+  top: 0.4em; 
+}
+*/
+.reference:before {
+	counter-increment: footnote;
+	content:'[' counter(footnote) ']';
+}
+
+.fitdangit{
+  margin:0;
+  font-size:70%
+}
+
+.Cooksie{
+ background:white;
+ color:white;
+ 
+}
+
+.story-time{
+  cursor:pointer;
+  border:none;
+  background:white;
+}
+
+
+:target {
+  background-color: transparent;
+  display: inline-block;
+  animation-name: test;
+  animation-duration: 1s;
+}
+
+@keyframes test {
+  
+      from {background-color: white;}
+      to {background-color: #E86924;}
+}
+
+@keyframes test-dark {
+  
+      from {background-color: #1C1B22;}
+      to {background-color: #E86924;}
+}
+
+.title {
+  font-size: 24px;
+}
+
+.titleline{
+  border-bottom:solid;
+  border-color:#A2A9B1;
+  border-width:1px; 
+}
+
+.story {
+  display: none;
+}
+.title.show-story .story {
+  display: inline;
+}
+.title.show-story.dots{
+  display: none;
+}
+
+
+.picture{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  overflow: auto;
+  padding-top:100px;
+}
+
+
+
+/*
+.picture{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  overflow: auto;
+}
+*/
+
+.grayback{
+ position: fixed;
+ z-index: 1;
+ left: 0;
+ top: 0;
+ Width: 100%;
+ height: 100%;
+ overflow: auto;
+ background-color: rgb(0,0,0);
+ background-color: rgba(0,0,0,0.9);
+}
+
+.close:hover{
+  color:#bbb;
+  text-decoration:none;
+  cursor:pointer;
+  
+}
+
+.close:focous{
+  color:#bbb;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.picture {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.reference{
+ font-size:90%; 
+ text-decoration:none; 
+ font-weight:bold; 
+ display:inline-block; 
+ vertical-align:; 
+ position: relative; 
+ top: -0.3em; 
+}
+
+.b{
+ font-size:14px; 
+}
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 4px; 
+  }
+  
+.adown{
+  transform: rotate(45deg)
+}
+
+.aup{
+  transform: rotate(-135deg)
+}
+.aright{
+ transform: roate(-45deg) 
+}
+
+.aleft{
+ transform: rotate(135deg) 
+}
+
+.test span{
+display: block;
+width: 100%;
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain; /** change full image size here **/
+}
+
+.test {
+display: none;
+position: fixed;
+z-index: 999;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 1em;
+background: rgba(0, 0, 0, 0.8);
+}
+
+.test:target{
+display: block;
+}
+
+.text-color{
+ color:#E86924;
+}
+
+
+
+#add2{
+  max-width:350px;
+}
+
+#block_container{
+  display: flex;
+}
+
+
+@media (max-width: 800px){
+  #add2{
+  display: none;
+  }
+ 
+  .squish{
+  border: 0 solid black;
+  margin:auto;
+  max-width:100%;
+  counter-reset:footnote;
+  margin:0 5px;
+ }
+
+ }
+  }
+
+/*
+ (prefers-color-scheme: dark){
+  body{
+    background-color: #1C1B22;
+    color: white;
+    font-family: Verdana;
+    padding: 100px 0;
+  }
+  .Cooksie{
+    background:#1C1B22;
+    color:#1C1B22;
+  }
+  .storuy-time{
+    cursor:pointer;
+    border:none;
+    background:#1C1B22
+  }
+  a:visited {
+  color:#0066CC;
+  }
+  
+  :target {
+  background-color: #1C1B22;
+  display: inline-block;
+  animation-name: test-dark;
+  animation-duration: 1s;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span>Filian<br> Fillian<br> Fillion<br> Twiggy<br> Fussy Baby<br> Furry<br> Class Clown<br> Johnny<br> Fillbert<br> Gertrude (Johnny Twiggy Gertrude)<br> Jeb<br> Filian Jostar<br> Furry Cringlord<br> Smacker<br> Shy Filly<br> Mercy<br> Fred (Fred Flintstone)<br> Fili2n<br> Filima<br> Filiapinoboy<br> F the #1#2&#48th top detective in the world<br> ToaLux<br> Hue Jazz<br> Lilian.</span>
+
+<span>Filian, Fillian, Fillion Twiggy, Fussy Baby, Furry, Class Clown, Johnny, Fillbert, Gertrude (Johnny Twiggy Gertrude), Jeb, Filian Jostar, Furry Cringlord, Smacker, Shy Filly, Mercy, Fred (Fred Flintstone), Fili2n, Filima, Filiapinoboy, F the #1#2&#48th top detective in the world, ToaLux, Hue Jazz, Lilian.</span>
+
+
+        <div class='names'>
+          <b>Names:</b>
+          <span>Filian<br> Twiggy<br> Fussy Baby<br> Furry<br> Class Clown<br> Johnny<br> Fillbert<br> Gertrude<br> Jeb<br> Filian Jostar<br> Furry Cringlord<br> Smacker<br> Shy Filly<br> Mercy<br> Fred Flintstone<br> Fili2n<br> Filima<br> Filiapinoboy<br> F the #1 #2<br> #48th top detective<br> in the world<br> ToaLux<br> Hue Jazz<br> Lilian, Fillian<br> Fillion<br> </span>
+        </div>
+        <div class='line'></div>
+          <div class='names'>
+          <b>Debut Date:</b>
+          <span>Apr 17, 2021</span>
+        </div>
+        
+        
+        <div class='row'>
+        <div class='column lc'>
+          <b>Names:</b>
+        </div>
+        <div class='column rc'>
+          <span>Filian<br> Twiggy<br> Fussy Baby<br> Furry<br> Class Clown<br> Johnny<br> Fillbert<br> Gertrude<br> Jeb<br> Filian Jostar<br> Furry Cringlord<br> Smacker<br> Shy Filly<br> Mercy<br> Fred Flintstone<br> Fili2n<br> Filima<br> Filiapinoboy<br> F the #1 #2 #48th top detective<br> in the world<br><br> ToaLux<br> Hue Jazz<br> Lilian, Fillian<br> Fillion<br> </span>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='column lc'>
+          <b>Debut Date:</b>
+        </div>
+        <div class='column rc'>
+          <span>April 17, 2021</span>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class='info'>
+      <div class='line color'>
+        <h2>Filian</h2>
+      </div>
+      <img class='avatar' src='https://static.wikia.nocookie.net/vrchat-legends/images/c/cc/TyScvzct_400x400.jpg/revision/latest?cb=20220313223242' alt='Filians moddle'>
+      <hr/>
+      <h3>Basic Details</h3>
+      <hr/>
+      <div class='row'>
+        <div class='column lc'>
+          <b>Names:</b>
+        </div>
+        <div class='column rc'>
+          <span>Filian<br> Twiggy<br> Fussy Baby<br> Furry<br> Class Clown<br> Johnny<br> Fillbert<br> Gertrude<br> Jeb<br> Filian Jostar<br> Furry Cringlord<br> Smacker<br> Shy Filly<br> Mercy<br> Fred Flintstone<br> Fili2n<br> Filima<br> Filiapinoboy<br> F the #1 #2 #48th top detective<br> in the world<br><br> ToaLux<br> Hue Jazz<br> Lilian, Fillian<br> Fillion<br> </span>
+        <div class='line'></div>
+        </div>
+      </div>
+      </tr>
+      <div class='row'>
+        <div class='column lc'>
+          <b>Debut Date:</b>
+        </div>
+        <div class='column rc'>
+          <span>April 17, 2021</span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+        <table class='info color'>
+      <tr>
+        <th>
+           <h2>Filian</h2>
+        </th>
+      </tr>
+    </table>
+    <table class='info'>
+      <tr>
+        <td>
+          <img class='avatar' src='https://static.wikia.nocookie.net/vrchat-legends/images/c/cc/TyScvzct_400x400.jpg/revision/latest?cb=20220313223242' alt='Filians moddle'>
+        </td>
+      </tr>
+    </table>
+    <table cellpadding=0 cellspacing=0 class='infosmall color'>
+      <tr>
+        <th>
+          <th colspan="2" class="infobox-above" style="background-color: #B60000; color: white; font-size: 125%">Markiplier</th>
+        </th>
+      </tr>
+    </table>
+    <table class='info'>
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td valign='top' class='lc'>
+                <b>Names</b>
+              </td>
+              <td class='rc'>
+                <span>Filian<br> Twiggy<br> Fussy Baby<br> Furry<br> Class Clown<br> Johnny<br> Fillbert<br> Gertrude<br> Jeb<br> Filian Jostar<br> Furry Cringlord<br> Smacker<br> Shy Filly<br> Mercy<br> Fred Flintstone<br> Fili2n<br> Filima<br> Filiapinoboy<br> F the #1 #2 #48th top detective in the world<br> ToaLux<br> Hue Jazz<br> Lilian<br> Fillian<br> Fillion<br> Sealian</span>
+              </td>
+            </tr>
+          </table>
+          <hr/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td valign='top' class='lc'>
+                <b>Debut Date</b>
+              </td>
+              <td class='rc'>
+                <span>April 17, 2021</span>
+              </td>
+            </tr>
+          </table>
+          <hr/>
+        </td>
+      </tr>
+    </table>
+    
+    
+    
+    function read(city) {
+    let voided = document.querySelector(`.title[data-city="${city}"] .voided`);
+    let story = document.querySelector(`.title[data-city="${city}"] .story`); 
+    let storyTime = document.querySelector(`.title[data-city="${city}"] .story-time`);
+
+    if (voided.style.display === "none") {
+        voided.style.display = "inline";
+        storyTime.textContent = "Read";
+        story.style.display = "none";
+    } else {
+        voided.style.display = "none";
+        storyTime.textContent = "Done"; 
+        story.style.display = "inline";
+    }
+}
+
+function read(city) {
+    let voided = document.querySelector(`.title[data-city="${city}"] .voided`);
+    let story = document.querySelector(`.title[data-city="${city}"] .story`); 
+    let storyTime = document.querySelector(`.title[data-city="${city}"] .story-time`);
+
+    if (voided.style.display === "none") {
+        voided.style.display = "inline";
+        story.style.display = "none";
+    } else {
+        voided.style.display = "none";
+        story.style.display = "inline";
+    }
+}
+    
+              </ol>
+          <ol start='51'>
+    
+    
+    window.onbeforeunload = function() {
+   localStorage.setItem(name, $('#inputName').val());
+   localStorage.setItem(phone, $('#inputPhone').val());
+   localStorage.setItem(subject, $('#inputAddress').val());
+}
+
+
+<span onclick="read('')" class='story-time' ><a class='pic'></a></span><span class='voided'></span>
+<span class='title' data-city=''>
+  <span class='story grayback' style='display:none;'>
+    <img onclick="read('')" class='picture close' style='max-width:;' src=''><span class='voided'></span>
+  </span>
+</span>
+
+<div class='title titleline' data-city=''>
+  <p ><span class='voided story-time' onclick="read('')"><i class='arrow adown'></i><b></b></span>
+    <span class='story' style='display:none;'><span onclick="read('')" class='story-time'><i class='arrow aup'></i><b></b></span><br/></span><sup><a href='#SO ' class='reference' id='TXT '></a></sup>
+  </p>
+</div>
+
+
+
+
+
+        <div class='title titleline' data-city='SCI'>
+          <p onclick="read('SCI')" class='story-time'><span class='voided'><i class='arrow adown'></i><b> Special Camp Incident</b><span style='font-size:14px'></span><sup><a href='#SO 2/8/2023 2:04:24' class='reference' id='TXT 2/8/2023 2:04:24'></a></sup></span></p>
+          <p>
+          <span class='story' style='display:none;'><i class='arrow aup'></i><b onclick="read('SCI')" class='story-time'> Special Camp Incident</b><br/>Filian had to do so many hours of community service in order to graduate. So she was invited to a summer camp for special needs kids as a councilor. There was one rule that you couldn't say the R word. Like many kids her age, who were young and dumb, used the word in every other sentence. While she was here she did her very best to never say the word. One evening while she was getting the kids ready for bed. One kid refused to settle down, running, and throwing a football. Something that Filian doesn't remember happened, (I assume the kid did something dangerous with the football) she responded with. “That was r*******.” As soon as the words left her lips the reality of what she said hit. Having accidently used that word in a derogatory manner, shook her so badly she cried herself to sleep. The kid didn't even notice and just kept running around. She was mortified the rest of her time there and it continues to haunt her to this day.<sup><a href='#SO 2/8/2023 2:04:24' class='reference' id='TXT 2/8/2023 2:04:24'></a></sup></span>
+          </p>
+        </div>
+        <div class="title titleline" data-city="PJ">
+          <p onclick="read('PJ')" class="story-time"><span class="voided"><i class='arrow adown'></i><b> Pooljerker</b><span style='font-size:14px'><sup><a href='#SO 9/17/2022 3:00:42' class='reference' id='TXT 9/17/2022 3:00:42'></a></sup></span></span></p>
+          <p>
+          
+          <span class="story" style="display: none;"><i class='arrow aup'></i><b onclick="read('PJ')" class='story-time'> Pooljerker</b><br/>When Filian was young, her family was throwing, a pool party. Filian wanted to jump in the pool, so she went to do a cannonball. Mid air a kid decides to swim right under where she was going to land. Unable to stop, she obliterated the small child. The kid cried and Filian got in trouble and was sent to her room. She was upset and frustrated, so she vented her frustrations the way teens do when they are left alone. She was having the time of her life  when her uncle knocked on her door. He just opened the door and starts telling her that she can come back out and that no one is upset with her anymore. He went in and sat on the bed next to her, she only had a thin bed sheet covering herself. She was just desperately trying to get him to leave. He eventualy did and she asked him to close the door on the way out which he did not.<sup><a href='#SO 9/17/2022 3:00:42' class='reference' id='TXT 9/17/2022 3:00:42'></a></sup></span>
+          </p>
+        </div>
+        <div class="title titleline" data-city="KB">
+          <p onclick="read('KB')" class="story-time"><span class="voided"><i class='arrow adown'></i><b> Kickball</b><span style='font-size:14px;'><sup><a href='#SO 8/13/2022 3:14:39' class='reference' id='TXT 8/13/2022 3:14:39'></a></sup></span></span></p>
+          <p>
+          <span class="story" style="display: none;"><i class='arrow aup'></i><b onclick="read('KB')" class='story-time'> Kickball</b><br/>Filian was playing kickball. Someone kicked the ball exceptionally far. Filian being her athletic self was sure she could catch it. She sprinted as fast as she could and ran to catch the ball. She was so focused on the ball that she didn't notice anything else around her, and ran full speed into a parked car. Everyone laughed at her and she claimed it was the most embarrassed she has ever been.<sup><a href='#SO 8/13/2022 3:14:39' class='reference' id='TXT 8/13/2022 3:14:39'></a></sup></span>
+          </p>
+        </div>
+      </div>  
+      
+<span class='title' data-city=''>
+  <span class='story grayback' style='display:none;'>
+    <img onclick="read('')" class='picture close' style='max-width:;' src=''><span class='voided'></span>
+  </span>
+</span>
+<span onclick="read('')" class='story-time pic' ></span>
+
+    <div class="modal fade" id="imageModaldt" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered zoom" style='max-width:50%;'>
+        <div class="modal-content">                                 <!-- -->
+          <div class="modal-header color">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <img src="https://filian.org/Twitch%20Said%20No.png" alt="Popup Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container mt-5 d-block d-lg-none">                              <!-- -->
+    <a type="button" class='text-color' data-bs-toggle="modal" data-bs-target="#imageModalm">
+      cat
+    </a>
+
+                                 <!-- -->
+    <div class="modal fade" id="imageModalm" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered zoom">
+        <div class="modal-content">
+          <div class="modal-header color" >
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <img src="https://filian.org/Twitch%20Said%20No.png" alt="Popup Image" class="img-fluid" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <meta charset='UTF-8'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:type" content='website'>
+  <meta property="og:url" content='https://filian.org/'>
+  <link rel="icon" href="https://filian.org/favicon.ico" type="https://filian.org/favicon.ico"/>
+  <meta property="og:title" content='Filian'>
+  <meta property="og:description" content='Filian is a vtuber who is short, hyper, and likes Fruit Snacks'>
+  <meta property="og:image" content='https://filian.org/Avatar%20Small.webp'>
+  <title>Filian Vtuber Wiki</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <p>
+  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+  </html>

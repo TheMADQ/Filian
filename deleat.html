@@ -1,0 +1,89 @@
+<html>
+<head>
+    <style>
+       
+.picture{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  overflow: auto;
+}
+
+.grayback{
+ position: fixed;
+ z-index: 1;
+ left: 0;
+ top: 0;
+ Width: 100%;
+ height: 100%;
+ overflow: auto; scroll 
+ background-color: rgb(0,0,0);
+ background-color: rgba(0,0,0,0.9);
+}
+
+.close:hover,
+.close:focous{
+  color:#bbb;
+  text-decoration:none;
+  cursor:pointer;
+  
+}
+
+.picture {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+    </style>
+</head>
+<body>
+
+        <div class='title' data-city='Filian-Name'>
+    <p onclick="read('Filian-Name')" class='story-time' href='#james'>you mom gay</p><span class='voided'></span>
+    <span class='story' style='display:none;'>
+      <div class="grayback">
+        
+        <div class='title' data-city='Filian-Name2'>
+          <img onclick="read('Filian-Name2')" class="picture close" id="img01" src="https://filianwiki.neocities.org/Images/7.%20Blury%20Tedy%20Rick.png"><span class='voided'></span>
+          <span class='story' style='display:none;'>
+            <div class="grayback">
+              <img onClick="read('Filian-Name'); window.location.reload();" class="picture close" id="img01" src="https://filianwiki.neocities.org/Images/10. A Christmass flag aka the Irish flag..png">
+              <span class='story' style='display:none;'>
+              </span>
+            </div>
+          </span>
+        </div>
+        
+      </div>
+    </span>
+<script>
+    function read(city) {
+    let voided = document.querySelector(`.title[data-city="${city}"] .voided`);
+    let story = document.querySelector(`.title[data-city="${city}"] .story`); 
+    let storyTime = document.querySelector(`.title[data-city="${city}"] .story-time`);
+
+    if (voided.style.display === "none") {
+        voided.style.display = "inline";
+        storyTime.textContent = "↓";
+        story.style.display = "none";
+    } else {
+        voided.style.display = "none";
+        storyTime.textContent = "↑"; 
+        story.style.display = "inline";
+    }
+}
+
+window.onbeforeunload = function() {
+   localStorage.setItem(name, $('#inputName').val());
+   localStorage.setItem(phone, $('#inputPhone').val());
+   localStorage.setItem(subject, $('#inputAddress').val());
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*#myImg:hover {opacity: 0.7;}*/
+
+/* The Modal (background) */
+.modal {
+  /*display: none; Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto;  Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+#slider{
+ overflow: hidden; 
+}
+#slider figure{
+ position: relative;
+ width:;
+ margin: 0;
+ left 0;
+ animation: 20s slider infinite;
+}
+
+/*#slider figure img{
+  float: left;
+  width: 20%;
+}
+
+*@keyframes slider {
+  0%{
+    left: 0;
+  }
+  20%{
+    left:0; 
+  }
+  25%{
+   left: -100%;
+  }
+  45%{
+   left: -100%;
+  }
+  50%{
+   left: -200%;
+  }
+  70%{
+   left: -200%;
+  }
+  75%{
+   left: -300% 
+  }
+  
+  95%{
+   left: -300% 
+  }
+  100%{
+    left: -400%;
+  }
+}*/
+
+</style>
+</head>
+<body>
+
+ <!--<div id='slider' class='modal'>
+    <figure>
+      <img src='https://filianwiki.neocities.org/Images/7.%20Blury%20Tedy%20Rick.png'>
+      <img src='https://filianwiki.neocities.org/Images/8.%20Deez%20Nuts%20Candel%20aka%20Gregery.png'>
+      <img src='https://filianwiki.neocities.org/Images/She%20killed%20%20Gregery.png'>
+      <img src='https://filianwiki.neocities.org/Images/8.%20FIlian%20eating%20a%20candel.....and%20ate%20Gregory.png'>
+    </figure>
+  </div>-->
+
+<div> 
+        <h3 class='section'>Embarasing Stories</h3>
+        <hr class='tl'/>
+        <div class='title' data-city='Filian-Name'>
+          <p onclick="read('Filian-Name')" class='story-time' style=' font-size:90%; text-decoration:none; font-weight:bold; display:inline-block; vertical-align:super; position: relative; top: -0.4em;'><sup><a href='#SO 7/30/2022 3:28:04' class='reference' id='TXT 7/30/2022 3:28:04'>[1]</a></sup></p><span style='font-size:14px'></span><span class='voided'><sup><a href='#SO 2/8/2023 2:04:24' class='reference' id='TXT 2/8/2023 2:04:24'></a></sup></span>
+          
+          <span class='story' style='display:none;'>
+          <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img onclick="read('Filian-Name')" class="modal-content close" id="img01" src="https://filianwiki.neocities.org/Images/7.%20Blury%20Tedy%20Rick.png">
+  <div id="caption"></div>
+</div>
+          </span>
+        </div>
+        </div>
+	<script>
+    function read(city) {
+    let voided = document.querySelector(`.title[data-city="${city}"] .voided`);
+    let story = document.querySelector(`.title[data-city="${city}"] .story`); 
+    let storyTime = document.querySelector(`.title[data-city="${city}"] .story-time`);
+
+    if (voided.style.display === "none") {
+        voided.style.display = "inline";
+        story.style.display = "none";
+    } else {
+        voided.style.display = "none";
+        story.style.display = "inline";
+    }
+}
+	</script>
+</body>
+
+</html>

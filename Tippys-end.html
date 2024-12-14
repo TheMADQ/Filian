@@ -1,0 +1,82 @@
+<html lang="en" onload="applyTheme()">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:type" content="website"/>
+    <meta property="url" content="https://filian.org"/>
+    <link rel="icon" href="https://filian.org/favicon.ico" type="https://filian.org/favicon.ico"/>
+    <meta property="og:title" content="Filian"/>
+    <meta property="og:discrption" content="Filian is a vtuber who is short, hyper, and likes Fruit Snacks!"/>
+    <meta property="og:image" content="https://filian.org/Avatar%20Small.webp"/>
+    <title>Filian Vtuber Wiki</title>
+    <link href='bootstrap.css' rel='stylesheet'/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    <style>
+    
+    html, body, .container {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+.count {
+  font-size: 150px;
+  color: white;
+  
+}
+body {
+  background-color: black;
+}
+</style>
+</head>
+<body>
+
+
+<center>
+
+      <p id="demo" class="container count"></p>
+
+</center>
+
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Mar 27, 2024 20:30:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src='JAVA.js'></script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>CSS Read more / Read less button | demo by #BlondieCode</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Common styles */
+        html, body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            font-family: Arial, "Helvetica Neue", Helvetica, serif;
+            background-color: #c6c6c6;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        div, footer, header, main {
+            box-sizing: border-box;
+        }
+        footer {
+            text-align: center;
+            flex-grow: 0;
+            padding: 20px 0;
+        }
+        main {
+            height: 100vh;
+            flex: 1;
+        }
+        a {
+            color: #b95995;
+        }
+        a:hover {
+            color: #b96f90;
+        }
+        .holder {
+            background: #ffffff;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 20px;
+        }
+        /* Styles for text box with more button */
+        .limited {
+            max-height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        .limited.l-200 {
+            max-height: 200px;
+        }
+        /* Add your sizes for text box */
+        .limited.l-300 {
+            max-height: 300px;
+        }
+        .limited .bottom {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 80%);
+            width: 100%;
+            height: 60px;
+            opacity: 1;
+            transition: .3s;
+        }
+        .read-more-checker {
+            opacity: 0;
+            position: absolute;
+        }
+        .read-more-checker:checked ~ .limited {
+            max-height: none;
+        }
+        .read-more-checker:checked ~ .limited .bottom {
+            opacity: 0;
+            transition: .3s;
+        }
+        .read-more-checker ~ .read-more-button:before {
+            content: 'More »';
+        }
+        .read-more-checker:checked ~ .read-more-button:before {
+            content: 'Less «';
+        }
+        .read-more-button {
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px;
+            color: #777;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+    
+</head>
+<body>
+<main>
+    <div class="holder">
+        <input type="checkbox" class="read-more-checker" id="read-more-checker" />
+        <div class="limited l-200">
+            <h1>Lorem Ipsum</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec ultrices magna. Etiam sollicitudin mi quis aliquet cursus. Donec faucibus volutpat finibus. Praesent vitae ex ornare, pharetra metus eu, maximus dolor. Maecenas placerat bibendum efficitur. Fusce non feugiat urna. Maecenas id volutpat massa, et maximus velit. Quisque congue tellus non augue ornare, et gravida tortor pretium.
+            </p>
+            <p>
+                Aliquam eleifend enim non risus scelerisque interdum nec eu odio. Vivamus sodales lacus ac tellus volutpat vulputate. Suspendisse tristique tortor erat, porttitor placerat sem luctus non. Donec pretium euismod ante, ut sagittis lacus fermentum et. Maecenas ut ultrices libero, at vulputate purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer dolor erat, tincidunt vitae consequat at, ultricies ac ipsum. Duis pulvinar, lacus et interdum fermentum, urna nulla viverra odio, sed blandit lorem arcu vitae purus. Duis congue lectus a dictum cursus. Nam at gravida ligula. Morbi mauris ligula, fringilla at felis sollicitudin, varius dictum leo. Donec eget vestibulum massa, a condimentum sapien. Phasellus lobortis nibh elit, in egestas justo finibus sed.
+            </p>
+            <h2>CSS is a Declarative, Domain-Specific Programming Language!</h2>
+            <p>
+                <img src="http://placekitten.com/g/500/300" alt="just kitty"/>
+            </p>
+            <div class="bottom"></div>
+        </div>
+        <label for="read-more-checker" class="read-more-button"></label>
+    </div>
+</main>
+<footer>
+    <small><a href="https://www.youtube.com/AidaDrogan" target="_blank">by #BlondieCode © 2020</a></small>
+</footer>
+</body>
+</html>
