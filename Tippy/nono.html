@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" onload="applyTheme()">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:type" content="website"/>
+    <meta property="url" content="https://filian.org"/>
+    <link rel="icon" href="https://filian.org/favicon.ico" type="https://filian.org/Images/Tippy/tippy%20pride.png"/>
+    <meta property="og:title" content="Tippy"/>
+    <meta property="og:discrption" content="Tippy was holding a cursed presentation review stream and i made this for her."/>
+    <meta property="og:image" content=""/>
+    <title>Tippy Smelly</title>
+    <link href='bootstrap.css' rel='stylesheet'/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    
+    
+    <style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 600px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: 50px;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+  
+}
+
+body {
+  background: black;
+  color: white;
+  margin:200px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<script>
+  function videoEnded() {
+      location.href="https://filian.org/Tippys-end";
+   }
+</script>
+
+
+
+
+<!--Grid row-->
+<div class="row d-flex justify-content-center " style="">
+
+  <!--Grid column-->
+  <div class="col-md-6 mt-50">
+
+    <button class="popup" onclick="myFunction()">Don't click me
+  <span class="popuptext" id="myPopup">you lost the game </span>
+</button>
+
+<h1>Stop saying no!</h1>
+<h2></br>Will you play?</h2>
+<a href="https://filian.org/Tippy/yes"><h2>yes</h2></a><br/><a href='https://filian.org/Tippy/nonono'><h2>No</h2></a>
+
+  </div>
+  <!--Grid column-->
+
+</div>
+<!--Grid row-->
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+const audio = new Audio("https://filian.org/Sounds/Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20[dQw4w9WgXcQ].m4a");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
+
+</script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src='JAVA.js'></script>
+  </body>
+</html>

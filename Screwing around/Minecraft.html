@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Minecraft in HTML</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #87CEEB;
+      font-family: Arial, sans-serif;
+    }
+    #gameContainer {
+      display: grid;
+      grid-template-columns: repeat(20, 32px);
+      grid-template-rows: repeat(15, 32px);
+      gap: 1px;
+    }
+    .block {
+      width: 32px;
+      height: 32px;
+      background-color: #8B4513; /* Dirt color */
+      cursor: pointer;
+    }
+    .grass {
+      background-color: #228B22;
+    }
+    .stone {
+      background-color: #B0B0B0;
+    }
+    .water {
+      background-color: #1E90FF;
+    }
+    .empty {
+      background-color: #87CEEB;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Click on a block to change its type!</h1>
+<div id="gameContainer"></div>
+
+<script>
+  const blockTypes = ['empty', 'dirt', 'grass', 'stone', 'water'];
+  let currentBlockType = 1; // Start with 'dirt'
+
+  // Initialize game grid
+  const gameContainer = document.getElementById('gameContainer');
+  for (let i = 0; i < 20 * 15; i++) {
+    const block = document.createElement('div');
+    block.classList.add('block', 'empty');
+    block.addEventListener('click', () => cycleBlock(block));
+    gameContainer.appendChild(block);
+  }
+
+  // Cycle through block types when clicked
+  function cycleBlock(block) {
+    block.classList.remove(blockTypes[currentBlockType]);
+    currentBlockType = (currentBlockType + 1) % blockTypes.length;
+    block.classList.add(blockTypes[currentBlockType]);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Clicker Game</title>
+  <style>
+    body {
+      background-color: #f3e5ab;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #444;
+      padding: 20px;
+    }
+    #cookie {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    #cookie:active {
+      transform: scale(0.9);
+    }
+    #score {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    #upgrades {
+      margin-top: 20px;
+    }
+    .upgrade {
+      padding: 10px;
+      background-color: #ffd700;
+      border: 2px solid #b8860b;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      display: inline-block;
+      width: 250px;
+    }
+    .upgrade.disabled {
+      background-color: #e0e0e0;
+      color: #888;
+      cursor: not-allowed;
+    }
+    .upgrade-count {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍪 Cookie Clicker Game 🍪</h1>
+  <p id="score">Cookies: 0</p>
+
+  <!-- Clickable Cookie Image -->
+  <img id="cookie" src="https://filian.org/Screwing%20around/cookie-isolated-on-transparent-background-free-png.png" alt="Cookie">
+
+  <!-- Upgrades Section -->
+  <div id="upgrades">
+    <div id="clickUpgrade" class="upgrade">Upgrade Click (+1 per click) - 50 cookies
+      <div class="upgrade-count" id="clickUpgradeCount">Purchased: 0</div>
+    </div>
+    <div id="autoClicker" class="upgrade">Auto Clicker (1/sec) - 200 cookies
+      <div class="upgrade-count" id="autoClickerCount">Purchased: 0</div>
+    </div>
+    <div id="doubleClickUpgrade" class="upgrade">Double Click Power - 500 cookies
+      <div class="upgrade-count" id="doubleClickUpgradeCount">Purchased: 0</div>
+    </div>
+    <div id="goldenClick" class="upgrade">Golden Click (+10 per click) - 1000 cookies
+      <div class="upgrade-count" id="goldenClickCount">Purchased: 0</div>
+    </div>
+    <div id="megaClicker" class="upgrade">Mega Clicker (5/sec) - 5000 cookies
+      <div class="upgrade-count" id="megaClickerCount">Purchased: 0</div>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let cookiesPerClick = 1;
+    let autoClickers = 0;
+    let doubleClickPurchased = 0;
+    let goldenClickPurchased = 0;
+    let megaClickers = 0;
+
+    const scoreDisplay = document.getElementById('score');
+    const cookie = document.getElementById('cookie');
+    const clickUpgrade = document.getElementById('clickUpgrade');
+    const autoClicker = document.getElementById('autoClicker');
+    const doubleClickUpgrade = document.getElementById('doubleClickUpgrade');
+    const goldenClick = document.getElementById('goldenClick');
+    const megaClicker = document.getElementById('megaClicker');
+
+    // Upgrade counts
+    const clickUpgradeCount = document.getElementById('clickUpgradeCount');
+    const autoClickerCount = document.getElementById('autoClickerCount');
+    const doubleClickUpgradeCount = document.getElementById('doubleClickUpgradeCount');
+    const goldenClickCount = document.getElementById('goldenClickCount');
+    const megaClickerCount = document.getElementById('megaClickerCount');
+
+    // Function to update the score display
+    function updateScore() {
+      scoreDisplay.textContent = `Cookies: ${score}`;
+    }
+
+    // Click event for the cookie
+    cookie.addEventListener('click', () => {
+      score += cookiesPerClick;
+      updateScore();
+    });
+
+    // Function to add cookies automatically with each Auto Clicker and Mega Clicker
+    function activateAutoClickers() {
+      setInterval(() => {
+        if (autoClickers > 0) {
+          score += autoClickers;
+        }
+        if (megaClickers > 0) {
+          score += megaClickers * 5;
+        }
+        updateScore();
+      }, 1000); // 1-second interval
+    }
+    activateAutoClickers(); // Start the auto clicker interval
+
+    // Click event for Click Upgrade
+    clickUpgrade.addEventListener('click', () => {
+      if (score >= 50) {
+        score -= 50;
+        cookiesPerClick += 1;
+        clickUpgradeCount.textContent = `Purchased: ${++clickUpgradeCount.dataset.count || 1}`;
+        updateScore();
+      } else {
+        alert("Not enough cookies for Click Upgrade!");
+      }
+    });
+
+    // Click event for Auto Clicker Upgrade
+    autoClicker.addEventListener('click', () => {
+      if (score >= 200) {
+        score -= 200;
+        autoClickers += 1;
+        autoClickerCount.textContent = `Purchased: ${++autoClickerCount.dataset.count || 1}`;
+        updateScore();
+      } else {
+        alert("Not enough cookies for Auto Clicker!");
+      }
+    });
+
+    // Click event for Double Click Upgrade
+    doubleClickUpgrade.addEventListener('click', () => {
+      if (score >= 500 && doubleClickPurchased === 0) {
+        score -= 500;
+        cookiesPerClick *= 2;
+        doubleClickUpgradeCount.textContent = `Purchased: ${++doubleClickUpgradeCount.dataset.count || 1}`;
+        doubleClickPurchased = 1;
+        updateScore();
+      } else if (doubleClickPurchased > 0) {
+        alert("Double Click Upgrade already purchased!");
+      } else {
+        alert("Not enough cookies for Double Click Upgrade!");
+      }
+    });
+
+    // Click event for Golden Click Upgrade
+    goldenClick.addEventListener('click', () => {
+      if (score >= 1000) {
+        score -= 1000;
+        cookiesPerClick += 10;
+        goldenClickCount.textContent = `Purchased: ${++goldenClickCount.dataset.count || 1}`;
+        updateScore();
+      } else {
+        alert("Not enough cookies for Golden Click!");
+      }
+    });
+
+    // Click event for Mega Clicker Upgrade
+    megaClicker.addEventListener('click', () => {
+      if (score >= 5000) {
+        score -= 5000;
+        megaClickers += 1;
+        megaClickerCount.textContent = `Purchased: ${++megaClickerCount.dataset.count || 1}`;
+        updateScore();
+      } else {
+        alert("Not enough cookies for Mega Clicker!");
+      }
+    });
+  </script>
+
+</body>
+</html>
